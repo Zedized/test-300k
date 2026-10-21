@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark only">
+<meta name="theme-color" content="#0B0B0D">
+<title>Тест: почему у тебя ещё нет 300 000 ₽ в месяц</title>
+<meta name="description" content="Узнай, что держит твой доход, и какой у тебя следующий шаг к 300 000 ₽ в месяц. После теста пошаговый план на 14 дней.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Почему у тебя ещё нет 300 000 ₽ в месяц">
+<meta property="og:description" content="Тест Максима Дьякова. Узнаешь главную причину и получишь план на 14 дней.">
+<meta property="og:image" content="https://test-300k.vercel.app/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="preload" href="fonts/unbounded-cyr.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/onest-cyr.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="img/hero.webp" as="image" type="image/webp">
+<style>
+@font-face{font-family:"Unbounded";font-style:normal;font-weight:200 900;font-display:swap;src:url(fonts/unbounded-cyr-ext.woff2) format("woff2");unicode-range:U+0460-052F,U+1C80-1C8A,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}
+@font-face{font-family:"Unbounded";font-style:normal;font-weight:200 900;font-display:swap;src:url(fonts/unbounded-cyr.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Unbounded";font-style:normal;font-weight:200 900;font-display:swap;src:url(fonts/unbounded-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Onest";font-style:normal;font-weight:100 900;font-display:swap;src:url(fonts/onest-cyr-ext.woff2) format("woff2");unicode-range:U+0460-052F,U+1C80-1C8A,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}
+@font-face{font-family:"Onest";font-style:normal;font-weight:100 900;font-display:swap;src:url(fonts/onest-cyr.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Onest";font-style:normal;font-weight:100 900;font-display:swap;src:url(fonts/onest-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+
+/* Система: ночь, один акцент (красный Максима #E11313), радиус 14px у карточек и пилюля у кнопок.
+   Заголовки Unbounded, текст Onest. Картинки: ночные фото со вспышкой. */
+:root{
+  --bg:#0B0B0D; --bg2:#111114; --card:#16161A; --card2:#1C1C21; --line:#2A2A31; --line2:#3A3A43;
+  --ink:#F5F5F6; --ink2:#A6A6AF; --ink3:#71717B;
+  --red:#E11313; --red2:#FF3B30; --redw:rgba(225,19,19,.13);
+  --r:14px;
+  --disp:"Unbounded","Arial Black",system-ui,sans-serif;
+  --sans:"Onest",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;background:var(--bg)}
+body{min-height:100dvh;background:var(--bg);color:var(--ink);font:400 16px/1.5 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:40;pointer-events:none;opacity:.35;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .12 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;-webkit-tap-highlight-color:transparent}
+a{color:inherit}
+img{display:block;max-width:100%}
+:focus-visible{outline:2.5px solid var(--red2);outline-offset:3px}
+.wrap{width:100%;max-width:480px;margin:0 auto;padding:0 20px}
+.screen{display:none}
+.screen.on{display:block;animation:in .32s cubic-bezier(.16,1,.3,1) both}
+@keyframes in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+h1,h2,h3{font-family:var(--disp);font-weight:700;letter-spacing:-.02em}
+em{font-style:normal;color:var(--red2)}
+.nb{white-space:nowrap}
+.label{font:600 11.5px/1 var(--disp);letter-spacing:.12em;text-transform:uppercase;color:var(--ink3)}
+.label.red{color:var(--red2)}
+
+.btn{display:flex;align-items:center;justify-content:center;width:100%;min-height:60px;padding:0 26px;border-radius:999px;background:var(--red);color:#fff;
+  font:700 16px/1.15 var(--disp);letter-spacing:-.01em;text-decoration:none;text-align:center;box-shadow:0 14px 30px -14px rgba(225,19,19,.9);transition:transform .15s,background .15s}
+.btn:hover{background:#C70F0F}
+.btn:active{transform:translateY(1px) scale(.985)}
+.btn.ghost{background:none;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line2)}
+.btn.ghost:hover{box-shadow:inset 0 0 0 1.5px var(--red)}
+
+/* ───── старт ───── */
+.mast{display:flex;align-items:center;justify-content:space-between;padding:18px 0 14px}
+.mast b{font:700 13px/1 var(--disp);letter-spacing:.14em;text-transform:uppercase}
+.mast b i{display:inline-block;width:8px;height:8px;margin-right:9px;border-radius:50%;background:var(--red);box-shadow:0 0 12px var(--red);vertical-align:1px}
+.mast span{font:500 12px/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--ink3)}
+.hero{position:relative;border-radius:var(--r);overflow:hidden;background:#000}
+.hero img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,11,13,0) 45%,rgba(11,11,13,.85) 100%)}
+.tag{position:absolute;z-index:2;left:14px;bottom:14px;display:flex;align-items:baseline;gap:8px;padding:10px 14px 9px;border-radius:10px;background:var(--red);color:#fff;
+  box-shadow:0 10px 24px -10px rgba(225,19,19,.9)}
+.tag b{font:800 22px/1 var(--disp);letter-spacing:-.02em}
+.tag span{font:600 13px/1 var(--sans);opacity:.9}
+#s-start h1{margin-top:22px;font-size:clamp(28px,8.4vw,40px);line-height:1.1}
+.lead{margin-top:14px;font-size:17px;line-height:1.5;color:var(--ink2)}
+.lead b{color:var(--ink);font-weight:600}
+.gift{position:relative;display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:center;margin-top:22px;padding:16px;border-radius:var(--r);background:var(--card);border:1px solid var(--line)}
+.gift .ico{display:grid;place-items:center;align-content:center;width:44px;height:44px;border-radius:12px;background:var(--redw);color:var(--red2);font:800 17px/1 var(--disp)}
+.gift .ico small{display:block;margin-top:2px;font:600 8.5px/1 var(--sans);letter-spacing:.04em;text-transform:uppercase}
+.gift p{font-size:15px;line-height:1.45;color:var(--ink2)}
+.gift p b{display:block;margin-bottom:2px;color:var(--ink);font-weight:650}
+.cta{position:sticky;bottom:0;z-index:5;margin-top:22px;padding:14px 0 calc(16px + env(safe-area-inset-bottom));
+  background:linear-gradient(180deg,rgba(11,11,13,0) 0,var(--bg) 32%)}
+.by{margin-top:6px;text-align:center;font-size:13px;color:var(--ink3)}
+
+/* ───── вопрос ───── */
+.qtop{display:flex;align-items:center;gap:14px;padding:16px 0 0}
+.back{flex:none;display:grid;place-items:center;width:40px;height:40px;margin-left:-8px;border-radius:999px}
+.back::before{content:"";width:10px;height:10px;border-left:2px solid var(--ink);border-bottom:2px solid var(--ink);transform:translateX(2px) rotate(45deg)}
+.back:hover{background:var(--card)}
+.prog{flex:1;height:4px;background:var(--line);border-radius:999px;overflow:hidden}
+.prog i{display:block;height:100%;width:0;background:var(--red);border-radius:999px;box-shadow:0 0 10px var(--red);transition:width .35s cubic-bezier(.16,1,.3,1)}
+.count{flex:none;min-width:54px;text-align:right;font:600 14px/1 var(--disp);color:var(--ink2)}
+.count b{color:var(--ink)}
+#q-body{padding:26px 0 40px}
+#q-body.swap{animation:in .28s cubic-bezier(.16,1,.3,1) both}
+.qzone{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.qzone::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--red);box-shadow:0 0 10px var(--red)}
+#q-title{font:700 clamp(23px,6.6vw,28px)/1.22 var(--sans);letter-spacing:-.01em}
+#q-hint{margin-top:10px;color:var(--ink2);font-size:15px}
+.opts{display:grid;gap:10px;margin-top:22px}
+.opt{display:grid;grid-template-columns:30px 1fr;align-items:center;gap:12px;width:100%;min-height:60px;padding:13px 16px 13px 14px;text-align:left;
+  background:var(--card);border:1.5px solid var(--line);border-radius:var(--r);font:500 16px/1.35 var(--sans);transition:transform .12s,background .15s,border-color .15s}
+.opt .l{font:700 16px/1 var(--disp);color:var(--red2);text-align:center}
+.opt:hover{border-color:var(--line2)}
+.opt:active{transform:scale(.985)}
+.opt.on{background:var(--red);border-color:var(--red);color:#fff}
+.opt.on .l{color:#fff}
+
+/* ───── счёт ───── */
+#s-calc .wrap{min-height:100dvh;display:grid;place-content:center;justify-items:center;text-align:center;gap:16px}
+#s-calc .num{font:800 clamp(40px,13vw,58px)/1 var(--disp);letter-spacing:-.03em;color:var(--ink)}
+#s-calc .num em{font-size:.6em}
+#s-calc p{color:var(--ink2)}
+.load{width:200px;height:4px;background:var(--line);border-radius:999px;overflow:hidden}
+.load i{display:block;height:100%;width:100%;background:var(--red);transform-origin:left;animation:fill 1.25s cubic-bezier(.3,0,.2,1) both}
+@keyframes fill{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+
+/* ───── результат ───── */
+#s-result .wrap{padding-bottom:36px}
+.rhead{padding-top:26px}
+.rhead h1{margin-top:10px;font-size:clamp(27px,8vw,36px);line-height:1.12}
+.rhead p{margin-top:12px;font-size:16.5px;color:var(--ink2)}
+.ladder{display:grid;gap:6px;margin-top:24px}
+.goal{display:flex;justify-content:flex-end;align-items:center;gap:8px;margin-bottom:2px;font:700 14px/1 var(--disp);color:var(--red2)}
+.goal::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--red);box-shadow:0 0 10px var(--red)}
+.rung{display:flex;align-items:center;gap:12px;min-height:46px;padding:6px 14px;background:var(--card);border:1.5px solid var(--line);border-radius:12px;font:600 14px/1.2 var(--disp);color:var(--ink3)}
+.rung b{flex:none;width:14px;font:700 13px/1 var(--disp);color:var(--ink3)}
+.rung .note{margin-left:auto;padding-left:8px;font:600 13px/1 var(--sans);white-space:nowrap}
+.rung.cur{background:var(--red);border-color:var(--red);color:#fff;box-shadow:0 12px 26px -14px rgba(225,19,19,.95)}
+.rung.cur b{color:#fff}
+.rung.next{border-style:dashed;border-color:var(--red);color:var(--ink)}
+.rung.next .note{color:var(--red2)}
+.rung.top:not(.cur){color:var(--ink)}
+.sec{margin-top:46px}
+.sec>h2{font-size:22px;line-height:1.2}
+.sec>.sub{margin-top:8px;color:var(--ink2);font-size:15px}
+.why{margin-top:18px;border-radius:var(--r);overflow:hidden;background:var(--card);border:1.5px solid var(--line)}
+.why.main{border-color:var(--red)}
+.why .pic{position:relative}
+.why .pic img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
+.why .pic::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(22,22,26,0) 40%,var(--card) 100%)}
+.why .pic .label{position:absolute;z-index:2;left:16px;top:14px;padding:7px 10px;border-radius:8px;background:rgba(11,11,13,.72);color:#fff}
+.why.main .pic .label{background:var(--red)}
+.why .body{padding:4px 16px 18px}
+.why.small{display:grid;grid-template-columns:92px 1fr;gap:14px;padding:14px}
+.why.small .body{padding:0}
+.why.small img{width:92px;height:92px;border-radius:10px;object-fit:cover}
+.qpic{margin-top:22px;border-radius:var(--r);overflow:hidden;opacity:.92}
+.qpic img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
+.ztitle{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.ztitle h3{font-size:21px;line-height:1.15}
+.why.small .ztitle h3{font-size:17px}
+.zscore{font:700 15px/1 var(--disp);color:var(--red2);white-space:nowrap}
+.ztag{margin-top:4px;font-size:13.5px;color:var(--ink3)}
+.why p.d{margin-top:10px;font-size:15.5px;line-height:1.5;color:var(--ink2)}
+.zstep{margin-top:14px;padding:12px 14px;border-radius:10px;background:var(--redw);font-size:15px;line-height:1.5}
+.zstep b{font-weight:650;color:var(--red2)}
+.zmap{margin-top:16px;padding:8px 16px;border-radius:var(--r);background:var(--card);border:1px solid var(--line)}
+.zrow{display:grid;grid-template-columns:118px 1fr 28px;align-items:center;gap:10px;padding:9px 0;font:500 14.5px/1.2 var(--sans)}
+.zrow+.zrow{border-top:1px solid var(--line)}
+.zbar{height:8px;border-radius:999px;background:var(--line2);transform-origin:left;animation:fill .7s cubic-bezier(.16,1,.3,1) both}
+.zrow.low .zbar{background:var(--red);box-shadow:0 0 10px rgba(225,19,19,.6)}
+.zrow.top .zbar{background:var(--ink)}
+.zrow span:last-child{text-align:right;font:700 14px/1 var(--disp)}
+.zrow.low span:last-child{color:var(--red2)}
+.strong{margin-top:12px;font-size:15px;color:var(--ink2)}
+.strong b{font-weight:650;color:var(--ink)}
+.math{margin-top:16px;border-radius:var(--r);overflow:hidden;border:1px solid var(--line)}
+.mrow{display:grid;grid-template-columns:1fr auto;align-items:center;gap:10px;padding:14px 16px;background:var(--card)}
+.mrow+.mrow{border-top:1px solid var(--line)}
+.mrow .c{font:700 17px/1.1 var(--disp)}
+.mrow .c small{display:block;margin-bottom:4px;font:500 12px/1 var(--sans);letter-spacing:.06em;text-transform:uppercase;color:var(--ink3)}
+.mrow .n{font:600 15px/1.2 var(--sans);color:var(--ink2);text-align:right}
+.mrow .n i{display:block;margin-top:4px;font:700 12px/1 var(--disp);font-style:normal;color:var(--red2)}
+.mrow.on{background:var(--redw)}
+.mrow.on .c{color:var(--red2)}
+.mrow:last-child .c{color:var(--ink)}
+.mnote{margin-top:12px;font-size:15px;color:var(--ink2)}
+.route{margin-top:12px;font-size:16px;line-height:1.5;color:var(--ink2)}
+.want{margin-top:12px;font-size:15.5px}
+.want b{font-weight:650}
+.bline{margin-top:16px;padding:14px 16px;border-radius:12px;border:1.5px dashed var(--red);font:700 17px/1.3 var(--sans)}
+.bline .label{display:block;margin-bottom:8px}
+.steps{margin-top:16px;display:grid;gap:12px;counter-reset:s;list-style:none}
+.steps li{position:relative;padding-left:40px;font-size:15.5px;line-height:1.5;color:var(--ink2);counter-increment:s}
+.steps li::before{content:counter(s);position:absolute;left:0;top:0;display:grid;place-items:center;width:28px;height:28px;border-radius:8px;background:var(--card2);font:700 13px/1 var(--disp);color:var(--red2)}
+.sub2{margin-top:22px;font:600 14px/1.2 var(--sans);color:var(--ink)}
+.razbor{margin-top:46px;padding:22px 18px 20px;border-radius:var(--r);background:linear-gradient(160deg,#2A0A0A 0,#16161A 70%);border:1.5px solid #4A1414}
+.razbor h2{font-size:21px;line-height:1.22}
+.razbor ul{margin:14px 0 18px;list-style:none;display:grid;gap:8px}
+.razbor li{position:relative;padding-left:22px;font-size:15.5px;color:var(--ink2)}
+.razbor li::before{content:"";position:absolute;left:2px;top:.62em;width:10px;height:2px;background:var(--red2)}
+.again{display:block;margin:26px auto 0;padding:10px 14px;color:var(--ink3);font-size:14.5px;text-decoration:underline;text-underline-offset:3px}
+
+@media (min-width:900px){
+  .wrap{max-width:560px}
+  #s-start .wrap{max-width:1080px;display:grid;grid-template-columns:1fr 500px;column-gap:64px;align-content:start;min-height:100dvh;padding-top:8px;padding-bottom:24px}
+  #s-start .mast{grid-column:1/-1;margin-bottom:clamp(30px,8vh,90px)}
+  #s-start .hero{grid-column:2;grid-row:2/span 2;align-self:start}
+  #s-start .txt{grid-column:1;grid-row:2}
+  #s-start h1{font-size:46px;margin-top:0}
+  .lead{font-size:18px}
+  .cta{position:static;background:none;max-width:360px}
+  #q-title{font-size:30px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<!-- старт -->
+<section class="screen on" id="s-start">
+  <div class="wrap">
+    <div class="mast"><b><i></i>Максим Дьяков</b><span>тест</span></div>
+    <div class="hero">
+      <img src="img/hero.webp" width="880" height="660" alt="Чёрный внедорожник ночью, на сиденье пачка денег">
+      <div class="tag"><b>300 000 ₽</b><span>в месяц</span></div>
+    </div>
+    <div class="txt">
+      <h1>Узнай, почему у тебя ещё нет <em class="nb">300 000 ₽</em> в месяц</h1>
+      <p class="lead">Тест покажет, что держит твой доход: <b>мышление, продукт, клиенты, продажи или система</b>. И какой у тебя следующий шаг.</p>
+      <div class="gift">
+        <span class="ico">14<small>дней</small></span>
+        <p><b>Подарок после теста</b>Пошаговый план на 14 дней под твою главную причину. Пришлю в Telegram сразу после результата.</p>
+      </div>
+      <div class="cta"><button class="btn" id="go" type="button">Пройти тест</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- вопросы -->
+<section class="screen" id="s-q">
+  <div class="wrap">
+    <div class="qtop">
+      <button class="back" id="back" type="button" aria-label="Назад"></button>
+      <div class="prog" aria-hidden="true"><i id="q-bar"></i></div>
+      <span class="count" id="q-count"></span>
+    </div>
+    <div id="q-body" aria-live="polite">
+      <div class="qzone" id="q-zone" hidden><span class="label red" id="q-zname"></span></div>
+      <h2 id="q-title"></h2>
+      <p id="q-hint" hidden></p>
+      <div id="q-opts"></div>
+      <div class="qpic" id="q-pic" hidden></div>
+    </div>
+  </div>
+</section>
+
+<!-- счёт -->
+<section class="screen" id="s-calc">
+  <div class="wrap">
+    <span class="label red">считаю результат</span>
+    <div class="num"><span id="calc-n">0</span> <em>₽</em></div>
+    <div class="load"><i></i></div>
+    <p>Сравниваю твои ответы с дорогой к 300 000 ₽</p>
+  </div>
+</section>
+
+<!-- результат -->
+<section class="screen" id="s-result">
+  <div class="wrap">
+    <div class="rhead">
+      <span class="label red">твой результат</span>
+      <h1>Твоя точка: <em id="r-stage"></em></h1>
+      <p id="r-desc"></p>
+    </div>
+    <div class="ladder" id="r-ladder"></div>
+
+    <div class="sec">
+      <h2>Почему у тебя пока нет <em class="nb">300 000 ₽</em></h2>
+      <p class="sub">Две зоны, которые держат твой доход на месте.</p>
+      <div id="r-zones"></div>
+    </div>
+
+    <div class="sec">
+      <h2>Карта твоих зон</h2>
+      <div class="zmap" id="r-map"></div>
+      <p class="strong" id="r-strong"></p>
+    </div>
+
+    <div class="sec">
+      <h2>Математика <em class="nb">300 000 ₽</em></h2>
+      <p class="sub">Сколько продаж в месяц нужно при разном чеке.</p>
+      <div class="math" id="r-math"></div>
+      <p class="mnote" id="r-mnote"></p>
+    </div>
+
+    <div class="sec">
+      <h2>Твой путь к <em class="nb">300 000 ₽</em></h2>
+      <p class="route" id="r-route"></p>
+      <p class="want" id="r-want"></p>
+      <p class="bline" id="r-b"></p>
+      <p class="sub2">С чего начать в первые три дня:</p>
+      <ol class="steps" id="r-steps"></ol>
+      <div class="gift" style="margin-top:28px">
+        <span class="ico">14<small>дней</small></span>
+        <p><b id="r-plan"></b>Полный план на 14 дней по шагам пришлю в Telegram.</p>
+      </div>
+      <div class="cta" style="position:static;background:none;padding-bottom:0"><a class="btn" id="r-bot" href="#" rel="noopener">Забрать план в Telegram</a></div>
+    </div>
+
+    <div class="razbor" id="r-razbor">
+      <h2>Хочешь выйти на <span class="nb">300 000 ₽</span> быстрее? Напиши мне слово <em>РАЗБОР</em></h2>
+      <ul id="r-rz"></ul>
+      <a class="btn ghost" id="r-dm" href="#" rel="noopener">Написать «РАЗБОР»</a>
+    </div>
+    <button class="again" id="again" type="button">Пройти тест заново</button>
+  </div>
+</section>
+
+<script>
+(function(){
+'use strict';
+var D = {"questions":[{"id":"occ","kind":"qual","short":"Занятие","title":"Чем ты сейчас зарабатываешь?","options":[{"t":"Работаю в найме"},{"t":"Фриланс, беру заказы"},{"t":"Своё дело или свой продукт"},{"t":"Работаю в онлайн-проекте: продажи, ассистент, менеджер"},{"t":"Учусь, своих денег пока нет"},{"t":"Ищу, чем заняться"}]},{"id":"mind1","kind":"zone","zone":"myshlenie","short":"Мышление","title":"Знакомый твоего возраста вышел на 300 000 ₽ в месяц. Твоя первая мысль?","options":[{"t":"Повезло: связи, родители или удачный момент","p":2},{"t":"Мне так не суметь, у меня другие стартовые","p":3},{"t":"Круто, но у меня сейчас другие задачи","p":5},{"t":"Спрошу, как он это сделал, и примерю на себя","p":9}]},{"id":"age","kind":"qual","short":"Возраст","title":"Сколько тебе лет?","options":[{"t":"14-17"},{"t":"18-24"},{"t":"25-30"},{"t":"30-40"},{"t":"Больше 40"}]},{"id":"chek","kind":"zone","zone":"chek","short":"Продукт и чек","title":"Что ты можешь продать прямо сейчас и за сколько?","options":[{"t":"Пока ничего, не понимаю, за что мне могут платить","p":2},{"t":"Своё время: работу по часам или по задачам","p":4},{"t":"Услугу, но недорого: до 10 000 ₽ за заказ","p":5},{"t":"Продукт или услугу от 30 000 ₽ с понятным результатом","p":9}]},{"id":"income","kind":"qual","short":"Доход в месяц","title":"Сколько ты зарабатываешь в месяц?","hint":"Считай всё: работу, подработки, заказы.","options":[{"t":"Пока 0"},{"t":"До 50 000 ₽"},{"t":"50 000 - 100 000 ₽"},{"t":"100 000 - 300 000 ₽"},{"t":"Больше 300 000 ₽"}]},{"id":"lidy","kind":"zone","zone":"lidy","short":"Поток клиентов","title":"Откуда к тебе приходят клиенты и заказы?","options":[{"t":"Клиентов нет, я пока ничего не продаю","p":2},{"t":"Работаю на одного работодателя, своих клиентов нет","p":3},{"t":"Только знакомые и сарафан","p":4},{"t":"Сам пишу людям, когда вспоминаю","p":5},{"t":"Есть свой поток: блог, реклама или рассылка, заявки каждую неделю","p":9}]},{"id":"mind2","kind":"zone","zone":"myshlenie","short":"Страшные шаги","title":"Когда ты последний раз делал ради денег то, что страшно?","hint":"Например: назвал высокую цену, написал сильному человеку, вышел в эфир.","options":[{"t":"Не помню такого","p":2},{"t":"Было, но давно","p":4},{"t":"В этом месяце","p":7},{"t":"Делаю постоянно: страшно значит, надо идти","p":9}]},{"id":"goal","kind":"qual","short":"Цель через год","title":"Сколько ты хочешь зарабатывать через год?","options":[{"t":"100 000 ₽ в месяц"},{"t":"300 000 ₽ в месяц"},{"t":"500 000 ₽ в месяц"},{"t":"1 000 000 ₽ в месяц и больше"}]},{"id":"sales","kind":"zone","zone":"prodazhi","short":"Продажи","title":"Человек готов купить, но говорит: «Дорого, я подумаю». Что ты делаешь?","options":[{"t":"До такого разговора у меня не доходило","p":2},{"t":"Делаю скидку, лишь бы не ушёл","p":3},{"t":"Говорю: хорошо, подумай. И жду","p":4},{"t":"Спокойно выясняю, что за этим стоит, и веду к решению","p":9}]},{"id":"invest","kind":"qual","short":"Вложения в обучение","title":"Сколько ты уже вкладывал в своё обучение?","options":[{"t":"Ничего, учусь по бесплатному"},{"t":"До 10 000 ₽"},{"t":"10 000 - 50 000 ₽"},{"t":"Больше 50 000 ₽ или был наставник"}]},{"id":"system","kind":"zone","zone":"sistema","short":"Система","title":"Как выглядит твоя обычная неделя?","options":[{"t":"Живу по настроению, планов нет","p":2},{"t":"Хватаюсь за 3-4 идеи сразу и ни одну не довожу","p":3},{"t":"Пашу много, всё на мне, к вечеру выжат","p":5},{"t":"Есть план на неделю, цифры и одно главное направление","p":9}]},{"id":"circle","kind":"zone","zone":"myshlenie","short":"Окружение","title":"Сколько людей рядом с тобой зарабатывают 300 000 ₽ в месяц и больше?","options":[{"t":"Ни одного","p":2},{"t":"Один-два знакомых, но общаемся редко","p":4},{"t":"Есть такие, общаемся регулярно","p":7},{"t":"Почти всё моё окружение","p":9}]},{"id":"pain","kind":"qual","short":"Главная боль","title":"Что, по-твоему, сильнее всего мешает тебе выйти на 300 000 ₽?","options":[{"t":"Не понимаю, чем заниматься и что продавать","zone":"chek"},{"t":"Страшно начать, боюсь, что не получится","zone":"myshlenie"},{"t":"Нет клиентов и заявок","zone":"lidy"},{"t":"Клиенты есть, но не покупают или торгуются","zone":"prodazhi"},{"t":"Продаю дёшево, страшно поднять цену","zone":"chek"},{"t":"Нет времени, всё в хаосе","zone":"sistema"},{"t":"Вокруг никто так не зарабатывает, не у кого учиться","zone":"myshlenie"}]}],"stages":[{"n":1,"name":"Старт с нуля","short":"0 ₽","desc":"Своих денег пока нет. Зато нет и привычки работать за копейки: строить можно сразу правильно.","b":"Первые 30 000 ₽, которые ты заработал сам","route":"До 300 000 ₽ у тебя четыре шага: первые свои деньги, стабильные 100 000 ₽, продукт с высоким чеком и свой поток заявок. Сейчас твой шаг первый."},{"n":2,"name":"Первые деньги","short":"до 50 000 ₽","desc":"Деньги уже приходят, но их хватает впритык. Каждый месяц начинается почти с нуля.","b":"Стабильные 100 000 ₽ каждый месяц","route":"До 300 000 ₽ три шага: стабильные 100 000 ₽, чек выше и свой поток заявок. Сейчас твой шаг первый."},{"n":3,"name":"Стабильная база","short":"50-100 тыс. ₽","desc":"Зарабатывать ты уже умеешь. Дальше рост упирается в чек и в количество часов в сутках.","b":"Чек в 2-3 раза выше и первые 150 000 ₽","route":"До 300 000 ₽ два шага: поднять чек и собрать свой поток заявок."},{"n":4,"name":"Рядом с планкой","short":"100-300 тыс. ₽","desc":"До 300 000 ₽ осталось меньше, чем ты уже прошёл. На этом этапе обычно всё держится на тебе, и сил на рывок не остаётся.","b":"300 000 ₽ без работы 24/7","route":"До 300 000 ₽ один шаг: система, в которой заявки и продажи идут без твоего ручного участия в каждой."},{"n":5,"name":"300 000+","short":"300 000+ ₽","desc":"Планка 300 000 ₽ уже взята. Дальше рост держит твоя слабая зона: закроешь её, и следующий шаг пойдёт быстрее.","b":"Следующая планка: 500 000 ₽ и выше","route":"Планка 300 000 ₽ у тебя уже пройдена. Следующий рост даст твоя главная зона."}],"zoneOrder":["myshlenie","chek","lidy","prodazhi","sistema"],"noStrong":"Сильной зоны пока нет. Для старта это обычная картина: начни с главной зоны, остальные подтянутся за ней.","razbor":["разберём твою точку А","поймём, почему так получилось","определим твою точку Б","соберём план выхода на 300 000 ₽ под тебя"],"math":{"rows":[{"chek":"3 000 ₽","n":"100 продаж"},{"chek":"10 000 ₽","n":"30 продаж"},{"chek":"30 000 ₽","n":"10 продаж"},{"chek":"100 000 ₽","n":"3 продажи"}],"mark":[-1,0,1,2],"note":"Чем выше чек, тем меньше людей нужно найти и убедить. Поэтому дорога к 300 000 ₽ почти всегда начинается с продукта и цены."},"goal":"300 000+","routeDone":"Планка 300 000 ₽ у тебя уже пройдена. Следующий рост даст твоя главная зона.","version":1,"zones":{"myshlenie":{"name":"Мышление","tag":"как ты смотришь на деньги и на себя","diag":["Большие деньги пока кажутся чем-то, что случается с другими: им повезло, у них связи. Пока эта мысль сидит внутри, любой шаг к доходу ощущается как риск, и ты его откладываешь. Сколько ты разрешишь себе зарабатывать, первой решает голова.","Зарабатывать ты уже умеешь, а 300 000 ₽ в голове пока звучат как чужая цифра. Рядом мало людей с таким доходом, и страшные шаги вроде высокой цены ты откладываешь. Доход обычно растёт ровно до уровня, который кажется тебе нормальным."],"step":"Найди одного человека, который зарабатывает 300 000 ₽ и больше, и задай ему 3 вопроса: с чего он начал, что делал первые полгода, от чего отказался.","strong":"Ты смотришь на чужой успех как на инструкцию. С таким мышлением навыки догоняются быстро.","plan":{"title":"Голова на 300 000 ₽","blocks":[{"days":"Дни 1-3","name":"Посчитай свои 300 000 ₽","items":["Распиши, из чего могут сложиться 300 000 ₽ в твоём деле: сколько продаж и по какой цене.","Выпиши 5 причин, которыми ты объясняешь себе, почему такого дохода пока нет. Напротив каждой напиши, что можешь сделать с ней на этой неделе.","Найди 3 человека, которые прошли этот путь из похожей точки. Запиши, что они делали в первые полгода."]}]}},"chek":{"name":"Продукт и чек","tag":"что ты продаёшь и за сколько","diag":["Пока непонятно, за что тебе могут платить. Нет продукта или услуги с понятным результатом и ценой, поэтому деньгам просто некуда прийти. Первые деньги начинаются с ответа на вопрос: какую проблему человека я решаю.","Ты продаёшь своё время или недорогую услугу. При чеке 5 000 ₽ для 300 000 ₽ нужно 60 продаж в месяц, руками столько не сделать. Пока чек низкий, доход упирается в часы в сутках."],"step":"Опиши одну услугу или продукт с результатом для клиента и ценой от 30 000 ₽. Проверь себя: за что именно человек платит такие деньги.","strong":"У тебя есть продукт с нормальным чеком. Это самая короткая дорога к 300 000 ₽: клиентов нужно меньше.","plan":{"title":"Продукт, за который платят 30 000 ₽+","blocks":[{"days":"Дни 1-3","name":"Найди, за что платят","items":["Выпиши всё, что ты умеешь и за что тебе уже говорили спасибо. Даже мелочи.","Найди 5 человек или бизнесов, у которых болит то, что ты умеешь решать. Запиши, сколько им стоит эта проблема в деньгах или во времени.","Посмотри, что продают 5 конкурентов: что входит, какой результат обещают, сколько стоит."]}]}},"lidy":{"name":"Поток клиентов","tag":"откуда приходят люди, готовые платить","diag":["Своих клиентов пока нет, и взяться им неоткуда. Платит тот, кто знает о тебе и о том, что ты продаёшь. Пока об этом не знает никто, доход стоит на нуле, какой бы сильной ни была услуга.","Клиенты приходят по сарафану или когда ты сам о них вспомнил. В хороший месяц денег много, в плохой тишина. Пока у тебя нет своего лидгена, доход зависит от случая."],"step":"Выбери один канал заявок: личные сообщения, блог или чаты. И отправь за неделю 30 предложений людям, у которых есть твоя проблема.","strong":"У тебя уже есть свой поток заявок. Именно он отличает тех, кто зарабатывает стабильно.","plan":{"title":"Свой поток заявок","blocks":[{"days":"Дни 1-3","name":"Выбери канал","items":["Опиши своего клиента в 5 строках: кто он, что болит, где проводит время, что уже пробовал, сколько готов платить.","Выбери один канал на месяц: личные сообщения, блог, чаты или знакомые знакомых. Один.","Составь список из 50 человек или бизнесов, которым нужно то, что ты продаёшь."]}]}},"prodazhi":{"name":"Продажи","tag":"умеешь ли ты превращать интерес в деньги","diag":["До разговора о деньгах у тебя доходит редко. А когда доходит, хочется скорее снизить цену. Человек чувствует неуверенность и уходит думать. Без навыка продаж даже хороший продукт лежит мёртвым грузом.","Люди интересуются, а покупают единицы. На слове дорого ты делаешь скидку или отпускаешь человека подумать. Деньги теряются прямо в разговоре, когда клиент уже был почти готов."],"step":"Запиши структуру разговора: вопросы о ситуации, что болит, к чему человек хочет прийти, твоё предложение, цена, следующий шаг. Проведи по ней 3 разговора.","strong":"Ты умеешь вести человека к решению. Этот навык поднимает доход быстрее всего.","plan":{"title":"Продажи без скидок","blocks":[{"days":"Дни 1-3","name":"Собери разговор","items":["Запиши 7 вопросов о ситуации клиента: что сейчас, что пробовал, что мешает, сколько это ему стоит, куда хочет прийти.","Распиши одной фразой, как ты переходишь от его боли к своему предложению.","Проговори цену вслух 10 раз, пока она не начнёт звучать спокойно."]}]}},"sistema":{"name":"Система","tag":"режим, фокус и привычка доводить до конца","diag":["Ты двигаешься рывками: есть настроение, делаешь, нет настроения, всё стоит. Или хватаешься за несколько идей сразу и ни одну не доводишь до денег. Усилия есть, а результата не видно.","Работы много, и всё держится на тебе: клиенты, задачи, дедлайны, к вечеру сил нет. Каждый новый клиент приносит усталости больше, чем денег, и до 300 000 ₽ просто не хватает часов."],"step":"Выбери одно направление на месяц и поставь в календарь 5 рабочих блоков по 90 минут в неделю. В эти блоки делай только то, что приносит деньги.","strong":"Ты держишь план и фокус. С такой опорой любой рост идёт быстрее.","plan":{"title":"Система вместо хаоса","blocks":[{"days":"Дни 1-3","name":"Одно направление","items":["Выпиши всё, чем ты сейчас занимаешься и что планируешь. Вычеркни то, что не принесёт денег в ближайший месяц.","Оставь одно направление. Остальные идеи запиши в отдельный файл на потом.","Поставь цель на 14 дней в цифрах: сколько денег, продаж или заявок."]}]}}}};
+var CFG = {"bot":"pochemu_net_300k_bot","dm":"gotex5","sbUrl":"https://ksfcerxydsfmtormnptw.supabase.co","sbKey":"sb_publishable_3sFi6jPI6QIt6PX8UNpBGw_lSTT8QLM","sbTable":"t3_events"};
+var Q = D.questions, L = ['А','Б','В','Г','Д','Е','Ж','З'];
+var KEY = 't300k_v' + D.version;
+function $(id){ return document.getElementById(id); }
+function el(tag, cls, txt){ var e = document.createElement(tag); if(cls) e.className = cls; if(txt != null) e.textContent = txt; return e; }
+function rnd(n){ var s = ''; while(s.length < n) s += Math.random().toString(36).slice(2); return s.slice(0, n); }
+
+var st = null;
+try{ st = JSON.parse(localStorage.getItem(KEY) || 'null'); }catch(e){}
+if(!st || typeof st !== 'object' || !st.a) st = {i:-1, a:{}, done:false};
+if(!st.sid) st.sid = rnd(8);
+var qs = new URLSearchParams(location.search);
+var src = (qs.get('src') || st.src || 'direct').replace(/[^A-Za-z0-9_-]/g, '').slice(0, 16) || 'direct';
+st.src = src;
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify(st)); }catch(e){} }
+save();
+
+function ev(name, step, data){
+  if(!CFG.sbUrl) return;
+  try{
+    fetch(CFG.sbUrl + '/rest/v1/' + CFG.sbTable, {method:'POST', keepalive:true,
+      headers:{'Content-Type':'application/json', 'apikey':CFG.sbKey, 'Authorization':'Bearer ' + CFG.sbKey, 'Prefer':'return=minimal'},
+      body:JSON.stringify({sid:st.sid, ev:name, step:(step == null ? null : step), src:src, data:data || null})
+    }).catch(function(){});
+  }catch(e){}
+}
+
+function show(id){
+  ['s-start','s-q','s-calc','s-result'].forEach(function(s){ $(s).classList.toggle('on', s === id); });
+  window.scrollTo(0, 0);
+}
+
+/* ───── вопросы ───── */
+function renderQ(){
+  var q = Q[st.i];
+  $('q-count').innerHTML = '<b>' + (st.i + 1) + '</b> / ' + Q.length;
+  $('q-bar').style.width = Math.round(st.i / Q.length * 100) + '%';
+  $('q-title').textContent = q.title;
+  var h = $('q-hint'); h.hidden = !q.hint; h.textContent = q.hint || '';
+  var zb = $('q-zone');
+  if(q.kind === 'zone'){ zb.hidden = false; $('q-zname').textContent = D.zones[q.zone].name; }
+  else { zb.hidden = true; }
+  var box = $('q-opts'); box.innerHTML = ''; box.className = 'opts';
+  var qp = $('q-pic'); qp.innerHTML = ''; qp.hidden = q.kind !== 'zone';
+  if(q.kind === 'zone'){ var pim = el('img'); pim.src = 'img/z-' + q.zone + '.webp'; pim.alt = ''; qp.appendChild(pim); }
+  var body = $('q-body'); body.classList.remove('swap'); void body.offsetWidth; body.classList.add('swap');
+  q.options.forEach(function(o, k){
+    var b = el('button', 'opt' + (st.a[q.id] === k ? ' on' : ''));
+    b.type = 'button';
+    b.appendChild(el('span', 'l', L[k]));
+    b.appendChild(el('span', 't', o.t));
+    b.addEventListener('click', function(){
+      if(box.dataset.lock) return;
+      box.dataset.lock = '1';
+      Array.prototype.forEach.call(box.children, function(c){ c.classList.remove('on'); });
+      b.classList.add('on');
+      st.a[q.id] = k; save();
+      setTimeout(function(){ delete box.dataset.lock; next(); }, 230);
+    });
+    box.appendChild(b);
+  });
+}
+
+function answered(q){ return typeof st.a[q.id] === 'number' && !!q.options[st.a[q.id]]; }
+function firstMissing(){
+  for(var k = 0; k < Q.length; k++){ if(!answered(Q[k])) return k; }
+  return -1;
+}
+function next(){
+  var cur = Q[st.i];
+  if(cur && !answered(cur)){ renderQ(); return; }
+  if(cur) ev('step', st.i);
+  st.i = cur ? st.i + 1 : Q.length;
+  save();
+  if(st.i >= Q.length){
+    var miss = firstMissing();
+    if(miss >= 0){ st.i = miss; save(); renderQ(); return; }
+    finish(); return;
+  }
+  renderQ();
+}
+
+/* ───── счёт (та же логика в api/_quiz.py) ───── */
+function compute(){
+  var a = st.a, tot = {}, cnt = {}, sc = {}, painZone = null;
+  Q.forEach(function(q){
+    if(q.kind === 'zone'){ tot[q.zone] = (tot[q.zone] || 0) + q.options[a[q.id]].p; cnt[q.zone] = (cnt[q.zone] || 0) + 1; }
+    if(q.id === 'pain') painZone = q.options[a.pain].zone;
+  });
+  D.zoneOrder.forEach(function(z){ sc[z] = Math.floor((2 * tot[z] + cnt[z]) / (2 * cnt[z])); });
+  var income = a.income, invest = a.invest;
+  if(income >= 3){ sc.lidy += 1; sc.prodazhi += 1; }
+  if(income === 0){ sc.chek -= 1; }
+  if(invest >= 2){ sc.myshlenie += 1; }
+  sc[painZone] -= 2;
+  D.zoneOrder.forEach(function(z){ sc[z] = Math.max(1, Math.min(10, sc[z])); });
+  var stage = income + 1;
+  function lowest(ex){
+    var best = null;
+    D.zoneOrder.forEach(function(z){ if(ex.indexOf(z) < 0 && (best === null || sc[z] < sc[best])) best = z; });
+    if(ex.indexOf(painZone) < 0 && sc[painZone] === sc[best]) best = painZone;
+    return best;
+  }
+  var main = lowest([]), second = lowest([main]), strong = null;
+  D.zoneOrder.forEach(function(z){ if(z !== main && z !== second && (strong === null || sc[z] > sc[strong])) strong = z; });
+  if(sc[strong] <= 4) strong = null;
+  return {sc:sc, stage:stage, main:main, second:second, strong:strong, variant:(income <= 1 ? 0 : 1)};
+}
+
+function payload(){
+  var s = 'r' + D.version;
+  Q.forEach(function(q){ s += String(st.a[q.id]); });
+  return s + '_' + st.sid + '_' + src;
+}
+
+function countUp(){
+  var n = $('calc-n'), t0 = null, dur = 1150;
+  function step(t){
+    if(t0 === null) t0 = t;
+    var k = Math.min(1, (t - t0) / dur), v = Math.round(300000 * (1 - Math.pow(1 - k, 3)) / 1000) * 1000;
+    n.textContent = v.toLocaleString('ru-RU').replace(/ |,/g, ' ');
+    if(k < 1) requestAnimationFrame(step);
+  }
+  n.textContent = '0';
+  requestAnimationFrame(step);
+}
+
+function finish(){
+  var r = compute();
+  if(!st.done){
+    st.done = true; save();
+    ev('finish', null, {a:payload(), stage:r.stage, main:r.main, second:r.second, sc:r.sc});
+  }
+  show('s-calc'); countUp();
+  renderResult(r);
+  setTimeout(function(){ show('s-result'); }, 1450);
+}
+
+function zimg(z, cls){ var im = el('img', cls || null); im.src = 'img/z-' + z + '.webp'; im.width = 480; im.height = 480; im.alt = ''; return im; }
+
+function renderResult(r){
+  var S = D.stages[r.stage - 1];
+  $('r-stage').textContent = S.name;
+  $('r-desc').textContent = S.desc;
+
+  var lad = $('r-ladder'); lad.innerHTML = '';
+  lad.appendChild(el('div', 'goal', 'цель ' + D.goal + ' ₽'));
+  for(var n = 5; n >= 1; n--){
+    var row = el('div', 'rung' + (n === r.stage ? ' cur' : (n === r.stage + 1 ? ' next' : '')) + (n === 5 ? ' top' : ''));
+    row.style.marginLeft = ((n - 1) * 5) + '%';
+    row.appendChild(el('b', null, String(n)));
+    row.appendChild(el('span', null, D.stages[n - 1].short));
+    if(n === r.stage) row.appendChild(el('span', 'note', 'ты здесь'));
+    if(n === r.stage + 1) row.appendChild(el('span', 'note', 'точка Б'));
+    lad.appendChild(row);
+  }
+
+  var zs = $('r-zones'); zs.innerHTML = '';
+  var Zm = D.zones[r.main], Z2 = D.zones[r.second];
+  var m = el('div', 'why main');
+  var pic = el('div', 'pic'); pic.appendChild(zimg(r.main)); pic.appendChild(el('span', 'label', 'причина №1')); m.appendChild(pic);
+  var mb = el('div', 'body');
+  var t = el('div', 'ztitle'); t.appendChild(el('h3', null, Zm.name)); t.appendChild(el('span', 'zscore', r.sc[r.main] + ' из 10')); mb.appendChild(t);
+  mb.appendChild(el('p', 'ztag', Zm.tag));
+  mb.appendChild(el('p', 'd', Zm.diag[r.variant]));
+  var stp = el('p', 'zstep'); stp.appendChild(el('b', null, 'Первый шаг. ')); stp.appendChild(document.createTextNode(Zm.step)); mb.appendChild(stp);
+  m.appendChild(mb); zs.appendChild(m);
+
+  var s2 = el('div', 'why small'); s2.appendChild(zimg(r.second));
+  var box = el('div', 'body');
+  box.appendChild(el('span', 'label', 'причина №2'));
+  var t2 = el('div', 'ztitle'); t2.style.marginTop = '8px'; t2.appendChild(el('h3', null, Z2.name)); t2.appendChild(el('span', 'zscore', r.sc[r.second] + ' из 10')); box.appendChild(t2);
+  box.appendChild(el('p', 'd', Z2.diag[r.variant]));
+  s2.appendChild(box); zs.appendChild(s2);
+
+  var map = $('r-map'); map.innerHTML = '';
+  D.zoneOrder.forEach(function(z, i){
+    var row = el('div', 'zrow' + ((z === r.main || z === r.second) ? ' low' : (z === r.strong ? ' top' : '')));
+    row.appendChild(el('span', null, D.zones[z].name));
+    var bar = el('div', 'zbar'); bar.style.width = (r.sc[z] * 10) + '%'; bar.style.animationDelay = (i * 70) + 'ms';
+    row.appendChild(bar);
+    row.appendChild(el('span', null, String(r.sc[z])));
+    map.appendChild(row);
+  });
+  var sp = $('r-strong'); sp.innerHTML = '';
+  if(r.strong){ sp.appendChild(el('b', null, 'Твоя опора: ' + D.zones[r.strong].name.toLowerCase() + '. ')); sp.appendChild(document.createTextNode(D.zones[r.strong].strong)); }
+  else sp.textContent = D.noStrong;
+
+  var mt = $('r-math'); mt.innerHTML = '';
+  var mark = D.math.mark[st.a.chek];
+  D.math.rows.forEach(function(x, i){
+    var row = el('div', 'mrow' + (i === mark ? ' on' : ''));
+    var c = el('div', 'c'); c.appendChild(el('small', null, 'чек')); c.appendChild(document.createTextNode(x.chek)); row.appendChild(c);
+    var nn = el('div', 'n', x.n + ' в месяц'); if(i === mark){ nn.appendChild(el('i', null, 'твой чек сейчас')); }
+    row.appendChild(nn);
+    mt.appendChild(row);
+  });
+  $('r-mnote').textContent = D.math.note;
+
+  $('r-route').textContent = (st.a.income === 4) ? D.routeDone : S.route;
+  var gq = null; Q.forEach(function(q){ if(q.id === 'goal') gq = q; });
+  var w = $('r-want'); w.innerHTML = '';
+  if(gq){ w.appendChild(document.createTextNode('Через год ты хочешь: ')); w.appendChild(el('b', null, gq.options[st.a.goal].t.replace(' в месяц', '').replace(' и больше', '+') + ' в месяц')); w.appendChild(document.createTextNode('. План ниже ведёт к этому по шагам.')); }
+  var bl = $('r-b'); bl.innerHTML = ''; bl.appendChild(el('span', 'label red', 'ближайшая точка Б')); bl.appendChild(document.createTextNode(S.b + '.'));
+  var ol = $('r-steps'); ol.innerHTML = '';
+  Zm.plan.blocks[0].items.forEach(function(x){ ol.appendChild(el('li', null, x)); });
+  $('r-plan').textContent = 'План «' + Zm.plan.title + '»';
+
+  $('r-bot').href = 'https://t.me/' + CFG.bot + '?start=' + payload();
+  var rz = $('r-rz'); rz.innerHTML = '';
+  D.razbor.forEach(function(x){ rz.appendChild(el('li', null, x)); });
+  if(CFG.dm){ $('r-dm').href = 'https://t.me/' + CFG.dm + '?text=' + encodeURIComponent('РАЗБОР'); }
+  else { $('r-razbor').style.display = 'none'; }
+}
+
+/* ───── события ───── */
+$('go').addEventListener('click', function(){
+  if(st.i < 0){ st.i = 0; ev('start'); }
+  save(); show('s-q'); renderQ();
+  D.zoneOrder.forEach(function(z){ var im = new Image(); im.src = 'img/z-' + z + '.webp'; });
+});
+$('back').addEventListener('click', function(){
+  if(st.i > 0){ st.i--; save(); renderQ(); } else { show('s-start'); }
+});
+$('r-bot').addEventListener('click', function(){ ev('bot_click'); });
+$('r-dm').addEventListener('click', function(){ ev('dm_click'); });
+$('again').addEventListener('click', function(){
+  st = {i:-1, a:{}, done:false, sid:rnd(8), src:src}; save(); show('s-start');
+});
+
+function complete(){ return firstMissing() < 0; }
+ev('open');
+if(st.done && complete()){ renderResult(compute()); show('s-result'); }
+else if(st.i >= 0 && st.i < Q.length){ st.done = false; show('s-q'); renderQ(); }
+else { st.i = -1; st.done = false; }
+window.__t3 = {st:function(){ return st; }, compute:compute, payload:payload, renderResult:renderResult, show:show, renderQ:renderQ, set:function(s){ st = s; }};
+})();
+</script>
+</body>
+</html>
